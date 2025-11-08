@@ -4,33 +4,30 @@ const colors = [
 ];
 
 const orbitContainer = document.querySelector(".orbiting-dots");
-const initialCount = 100;
+const initialCount = 256;
 
 function spawnDot() {
 	const dot = document.createElement("span");
 
-	// shortest viewport edge (height on desktop, width on phone)
-	const shortestEdge = Math.min(window.innerWidth, window.innerHeight);
+	const longestEdge = Math.max(window.innerWidth, window.innerHeight) - 16;
 
-	// orbit properties
-	const radius = Math.random() * (shortestEdge / 2) + 40; // up to half the shortest edge
-	const speed = Math.random() * 120 + 60;
+	const t = Math.random();
+	const eased = Math.pow(t, 1.5);
+	const radius = eased * (longestEdge / 2) + 40;
 
-	// gives variety to spawn timing + orbit starting location
+	const speed = Math.random() * 1024 + 60;
+
 	const fadeInDelay = Math.random() * 1.5;
 	const startingAngleOffset = Math.random() * -speed;
 
-	// random direction (1 = clockwise, -1 = counterclockwise)
 	const direction = Math.random() < 0.5 ? 1 : -1;
 
-	// random color
 	const color = colors[Math.floor(Math.random() * colors.length)];
 
-	// apply style
 	dot.style.setProperty("--radius", `${radius}px`);
 	dot.style.setProperty("--direction", direction);
 	dot.style.backgroundColor = color;
-	dot.style.boxShadow = `0 0 8px ${color}, 0 0 12px ${color}`;
+	dot.style.boxShadow = `0 0 4px ${color}, 0 0 8px ${color}`;
 	dot.style.opacity = "0";
 
 	dot.style.animation = `
@@ -41,12 +38,10 @@ function spawnDot() {
 
 	orbitContainer.appendChild(dot);
 
-	// fade in after delay
 	setTimeout(() => {
 		dot.style.opacity = "1";
 	}, fadeInDelay * 1000);
 
-	// lifetime 1–3 orbits
 	const lifetime = speed * (Math.random() * 2 + 1);
 
 	setTimeout(() => {

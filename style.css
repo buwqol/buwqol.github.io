@@ -43,6 +43,22 @@ body {
 	border: 3px solid var(--accent1);
 	z-index: 2;
 	position: relative;
+	box-shadow: 0 0 6px var(--accent1), 0 0 12px var(--accent2);
+	animation: avatar-glow 3s infinite alternate;
+}
+
+@keyframes avatar-glow {
+	0% {
+		box-shadow: 0 0 6px var(--accent1), 0 0 14px var(--accent2);
+	}
+
+	50% {
+		box-shadow: 0 0 12px var(--accent1), 0 0 28px var(--accent2);
+	}
+
+	100% {
+		box-shadow: 0 0 6px var(--accent1), 0 0 14px var(--accent2);
+	}
 }
 
 h1 {
@@ -128,13 +144,14 @@ h1 {
 
 .orbiting-dots span {
 	position: absolute;
-	width: 6px;
-	height: 6px;
+	width: 4px;
+	height: 4px;
 	border-radius: 50%;
 	opacity: 0;
 	transform-origin: 0 0;
 	animation: orbit linear infinite, fade-in 1s forwards;
 	transform: rotate(calc(var(--direction) * 360deg * (var(--progress, 0))));
+	filter: blur(1px);
 }
 
 @keyframes orbit {
