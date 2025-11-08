@@ -1,0 +1,160 @@
+:root {
+	--bg: #05100F;
+	--text: #bdc79d;
+	--accent1: #14654A;
+	--accent2: #2A7154;
+	--accent3: #37765B;
+	--accent4: #50724E;
+	--accent5: #57874A;
+	--accent6: #568863;
+	--accent7: #848b6d;
+}
+
+html,
+body {
+	overflow: hidden;
+}
+
+body {
+	margin: 0;
+	background: var(--bg);
+	color: var(--text);
+	font-family: "PT Mono", monospace;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+.card {
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.avatar {
+	width: 120px;
+	height: 120px;
+	border-radius: 100%;
+	object-fit: cover;
+	border: 3px solid var(--accent1);
+	z-index: 2;
+	position: relative;
+}
+
+h1 {
+	margin: 0;
+	font-size: 2rem;
+}
+
+.tagline {
+	margin-top: -6px;
+	font-size: 1rem;
+	color: var(--accent2);
+	font-style: normal;
+}
+
+.socials {
+	display: flex;
+	justify-content: center;
+	gap: 1.3rem;
+	margin-top: 1rem;
+	z-index: 2;
+	position: relative;
+}
+
+.socials a {
+	font-size: 1.5rem;
+	text-decoration: none;
+	color: var(--text);
+	transition: transform 0.2s ease, color 0.2s ease, filter 0.2s ease;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 12px;
+	background: transparent;
+}
+
+.socials a:hover {
+	transform: scale(1.15);
+	color: var(--accent1);
+	filter: drop-shadow(0 0 8px var(--accent1)) drop-shadow(0 0 16px var(--accent2));
+}
+
+.username-container {
+	position: relative;
+	display: inline-block;
+	width: max-content;
+	z-index: 2;
+}
+
+.username {
+	color: var(--text);
+	text-shadow: 0 0 4px var(--text), 0 0 12px var(--text);
+	font-size: 2rem;
+	animation: glow-breathe 2.5s infinite alternate;
+	margin: 0;
+	z-index: 2;
+}
+
+@keyframes glow-breathe {
+	0% {
+		text-shadow: 0 0 4px var(--text), 0 0 12px var(--text);
+	}
+
+	50% {
+		text-shadow: 0 0 8px var(--text), 0 0 20px var(--text);
+	}
+
+	100% {
+		text-shadow: 0 0 4px var(--text), 0 0 12px var(--text);
+	}
+}
+
+.orbiting-dots {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 0;
+	width: 0;
+	height: 0;
+	overflow: visible;
+	pointer-events: none;
+}
+
+.orbiting-dots span {
+	position: absolute;
+	width: 6px;
+	height: 6px;
+	border-radius: 50%;
+	opacity: 0;
+	transform-origin: 0 0;
+	animation: orbit linear infinite, fade-in 1s forwards;
+	transform: rotate(calc(var(--direction) * 360deg * (var(--progress, 0))));
+}
+
+@keyframes orbit {
+	from {
+		transform: rotate(calc(var(--direction) * 0deg)) translateX(var(--radius));
+	}
+
+	to {
+		transform: rotate(calc(var(--direction) * 360deg)) translateX(var(--radius));
+	}
+}
+
+@keyframes fade-in {
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes fade-out {
+	to {
+		opacity: 0;
+	}
+}
