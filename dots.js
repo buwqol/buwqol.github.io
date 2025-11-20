@@ -56,3 +56,14 @@ function spawnDot() {
 for (let i = 0; i < initialCount; i++) {
 	spawnDot();
 }
+
+const setupHeader = document.querySelector('.setup-header');
+const setupContent = document.querySelector('.setup-content');
+const caretIcon = setupHeader.querySelector('i');
+
+setupHeader.addEventListener('click', () => {
+	setupContent.classList.toggle('open');
+	caretIcon.style.transform = setupContent.classList.contains('open')
+		? 'rotate(180deg)'
+		: 'rotate(0deg)';
+});
