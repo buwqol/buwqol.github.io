@@ -57,13 +57,15 @@ for (let i = 0; i < initialCount; i++) {
 	spawnDot();
 }
 
-const setupHeader = document.querySelector('.setup-header');
-const setupContent = document.querySelector('.setup-content');
-const caretIcon = setupHeader.querySelector('i');
+const desktopHeader = document.querySelector('.desktop-header');
+const desktopModal = document.querySelector('.desktop-modal');
 
-setupHeader.addEventListener('click', () => {
-	setupContent.classList.toggle('open');
-	caretIcon.style.transform = setupContent.classList.contains('open')
-		? 'rotate(180deg)'
-		: 'rotate(0deg)';
+desktopHeader.addEventListener('click', () => {
+	desktopModal.classList.add('open');
+});
+
+desktopModal.addEventListener('click', e => {
+	if (e.target === desktopModal) {
+		desktopModal.classList.remove('open');
+	}
 });
