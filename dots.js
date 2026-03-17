@@ -1,6 +1,6 @@
 const colors = [
-	'#14654A', '#2A7154', '#37765B',
-	'#50724E', '#57874A', '#568863', '#848b6d'
+	'#1c1917', '#26221f', '#312c28',
+	'#3d3732', '#5a524b', '#8a8076', '#bcbcbc'
 ];
 
 const orbitContainer = document.querySelector('.orbiting-dots');

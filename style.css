@@ -1,15 +1,14 @@
 :root {
-	--bg: #05100F;
-	--text: #bdc79d;
-	--accent1: #14654A;
-	--accent2: #2A7154;
-	--accent3: #37765B;
-	--accent4: #50724E;
-	--accent5: #57874A;
-	--accent6: #568863;
-	--accent7: #848b6d;
+	--bg: #12100f;
+	--text: #ebe7e4;
+	--accent1: #312f2e;
+	--accent2: #454240;
+	--accent3: #4b4846;
+	--accent4: #695f56;
+	--accent5: #9e9b98;
+	--accent6: #c4b7a9;
+	--accent7: #ebebeb;
 }
-
 html,
 body {
 	overflow: hidden;
@@ -179,7 +178,7 @@ h1 {
 .desktop-modal {
 	position: fixed;
 	inset: 0;
-	background: rgba(5,16,15,0.75);
+	background: rgba(18,16,15,0.75);
 	backdrop-filter: blur(6px);
 	display: flex;
 	justify-content: center;
